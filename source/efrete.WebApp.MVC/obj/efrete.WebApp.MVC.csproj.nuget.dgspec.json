@@ -36,9 +36,6 @@
             "projectReferences": {
               "C:\\Users\\uande\\OneDrive\\Área de Trabalho\\e-frete\\source\\efrete.Addresses.Domain\\efrete.Addresses.Domain.csproj": {
                 "projectPath": "C:\\Users\\uande\\OneDrive\\Área de Trabalho\\e-frete\\source\\efrete.Addresses.Domain\\efrete.Addresses.Domain.csproj"
-              },
-              "C:\\Users\\uande\\OneDrive\\Área de Trabalho\\e-frete\\source\\efrete.Core\\efrete.Core.csproj": {
-                "projectPath": "C:\\Users\\uande\\OneDrive\\Área de Trabalho\\e-frete\\source\\efrete.Core\\efrete.Core.csproj"
               }
             }
           }
@@ -52,6 +49,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -262,3 +262,4 @@ C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.WebApp.MVC\obj\D
 C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.WebApp.MVC\obj\Debug\net7.0\en\efrete.WebApp.MVC.resources.dll
 C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.WebApp.MVC\obj\Debug\net7.0\pt\efrete.WebApp.MVC.resources.cs
 C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.WebApp.MVC\obj\Debug\net7.0\pt\efrete.WebApp.MVC.resources.dll
+C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.WebApp.MVC\bin\Debug\net7.0\AutoMapper.dll

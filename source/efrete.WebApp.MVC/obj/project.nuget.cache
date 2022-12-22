@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "671+diIwRQyWr8VtH/xEbF+VJ9G92SQ0if0lA8hvdPg3CH1Lxq5223jeUYkF4kXHzFZuCB3pLJbN9Svlhs13aQ==",
+  "dgSpecHash": "lABxLkKNNpbpsgeUrVTjit9TY81W7KXQoBJbv2kEsEjD69ikHvLysho3SPkiYnUHTW8m/yv90eFIUXe3Qr//DQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\uande\\OneDrive\\Área de Trabalho\\e-frete\\source\\efrete.WebApp.MVC\\efrete.WebApp.MVC.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\uande\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\uande\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\uande\\.nuget\\packages\\mediatr\\11.1.0\\mediatr.11.1.0.nupkg.sha512",
     "C:\\Users\\uande\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",

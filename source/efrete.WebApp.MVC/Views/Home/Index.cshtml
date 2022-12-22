@@ -1,17 +1,41 @@
 ﻿@{
     ViewData["Title"] = "Página inicial";
 }
-<div class="container h-100">
-    <div class="row justify-content-center">
-        <div class="col-md-9">
-            <div class="mt-auto px-5 mb-5">
-                <h1 class="display-6 fw-bold mb-5">Bem vindo ao BuscadorCEP! da e-frete</h1>
+<div class="row align-items-center min-height-custom">
+    <div class="d-none d-md-flex col-md-4 bg-dark h-inherit">
+        algooo
+    </div>
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col">
+                <h1 class="display-1 text-purple fw-bold">Bem vindo!</h1>
             </div>
-            <div class="mb-auto fw-bold">
-                <p>O aplicativo BuscadorCEP! permite que você encontre códigos de endereçamento postais (CEP).</p>
-                <p>Se você já tiver o CEP em mãos e gostaria de buscar seu endereço, o BuscadorCEP! também vai te ajudar.</p>
-                <p>Aproveite!</p>
+        </div>
+        <div class="row my-4">
+            <div class="col">
+                <p class="fw-normal fs-5">
+                    O aplicativo BuscadorCEP! permite que você encontre códigos de endereçamento
+                    postais (CEP).
+                </p>
+                <p class="fw-normal fs-5">
+                    Se você já tiver o CEP em mãos e gostaria de buscar seu endereço, o BuscadorCEP!
+                    também vai te ajudar.
+                </p>
+                <p class="fw-normal fs-5">
+                    Aproveite!
+                </p>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="my-2 col-md-4 d-grid gap-2">
+                <a class="btn btn-lg btn-purple fw-light fs-4" asp-area="" asp-controller="Address"
+                    asp-action="SearchAddress">Buscar endereço</a>
+            </div>
+            <div class="my-2 col-md-4 d-grid gap-2">
+                <a class="btn  btn-lg btn-purple fw-light fs-4" asp-area="" asp-controller="Address"
+                    asp-action="SearchZipCode">Buscar cep</a>
             </div>
         </div>
     </div>
+</div>
 </div>

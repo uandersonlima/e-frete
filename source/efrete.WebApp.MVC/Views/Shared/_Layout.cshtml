@@ -1,5 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var path = @Url.ActionContext.HttpContext.Request.Path;
+}
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,41 +13,50 @@
     <link rel="stylesheet" href="~/efrete.WebApp.MVC.styles.css" asp-append-version="true" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;900&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 p-1 sticky-top">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-purple box-shadow p-1 min-fixHeight">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/efrete.png" width="120" /></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><span
+                        class="text-white fs-3 fw-bold">e-buscas</span></a>
+                @if (!path.Equals("/") && !path.Equals("/home/index"))
+                {
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                }
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between ms-md-5">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark fw-bolder" asp-area="" asp-controller="Address" asp-action="SearchAddress">Buscar endereço</a>
-                        </li>
-                        <li class="nav-item ms-md-4">
-                            <a class="nav-link text-dark fw-bolder" asp-area="" asp-controller="Address" asp-action="SearchZipCode">Buscar cep</a>
-                        </li>
+                        @if (!path.Equals("/") && !path.Equals("/home/index"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white fw-normal" asp-area="" asp-controller="Address"
+                                asp-action="SearchAddress">Buscar endereço</a>
+                            </li>
+                            <li class="nav-item ms-md-4">
+                                <a class="nav-link text-white fw-normal" asp-area="" asp-controller="Address"
+                                asp-action="SearchZipCode">Buscar cep</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            <div class="card shadow bg-white" style="min-height: 83vh; position:relative; background: white; border-radius: 1em">
+    <div class="container-fluid bg-white">
+        <main role="main">
             @RenderBody()
-            </div>
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted min-fixHeight">
         <div class="container">
-            &copy; @DateTime.Now.Year - efrete - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a>
+            &copy; @DateTime.Now.Year - e-buscas - <a asp-area="" asp-controller="Home" asp-action="Privacy"
+                class="link-purple">Privacidade</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -51,4 +64,5 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>
