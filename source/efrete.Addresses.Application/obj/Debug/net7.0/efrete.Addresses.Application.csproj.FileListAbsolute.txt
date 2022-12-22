@@ -1,0 +1,17 @@
+C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Application\bin\Debug\net7.0\efrete.Addresses.Application.deps.json
+C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Application\bin\Debug\net7.0\efrete.Addresses.Application.dll
+C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Application\bin\Debug\net7.0\efrete.Addresses.Application.pdb
+C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Application\bin\Debug\net7.0\efrete.Addresses.Domain.dll
+C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Application\bin\Debug\net7.0\efrete.Core.dll
+C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Application\bin\Debug\net7.0\efrete.Addresses.Domain.pdb
+C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Application\bin\Debug\net7.0\efrete.Core.pdb
+C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Application\obj\Debug\net7.0\efrete.Addresses.Application.csproj.AssemblyReference.cache
+C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Application\obj\Debug\net7.0\efrete.Addresses.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Application\obj\Debug\net7.0\efrete.Addresses.Application.AssemblyInfoInputs.cache
+C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Application\obj\Debug\net7.0\efrete.Addresses.Application.AssemblyInfo.cs
+C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Application\obj\Debug\net7.0\efrete.Addresses.Application.csproj.CoreCompileInputs.cache
+C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Application\obj\Debug\net7.0\efrete.Addresses.Application.csproj.CopyComplete
+C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Application\obj\Debug\net7.0\efrete.Addresses.Application.dll
+C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Application\obj\Debug\net7.0\refint\efrete.Addresses.Application.dll
+C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Application\obj\Debug\net7.0\efrete.Addresses.Application.pdb
+C:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Application\obj\Debug\net7.0\ref\efrete.Addresses.Application.dll

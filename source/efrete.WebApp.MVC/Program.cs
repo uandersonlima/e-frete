@@ -1,7 +1,11 @@
+using efrete.WebApp.MVC.Setup;
+
 var builder = WebApplication.CreateBuilder(args);
+var conf = builder.Configuration;
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.RegisterServices(conf);
 
 var app = builder.Build();
 

@@ -6,4 +6,19 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Locale\en-US\" />
+    <Folder Include="Locale\pt-BR\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\efrete.Core\efrete.Core.csproj" />
+    <ProjectReference Include="..\efrete.Addresses.Application\efrete.Addresses.Application.csproj" />
+    <ProjectReference Include="..\efrete.Addresses.Data\efrete.Addresses.Data.csproj" />
+  </ItemGroup>
+
 </Project>

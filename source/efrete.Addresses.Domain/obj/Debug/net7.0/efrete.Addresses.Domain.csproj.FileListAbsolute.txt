@@ -1,0 +1,15 @@
+c:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Domain\bin\Debug\net7.0\efrete.Addresses.Domain.deps.json
+c:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Domain\bin\Debug\net7.0\efrete.Addresses.Domain.dll
+c:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Domain\bin\Debug\net7.0\efrete.Addresses.Domain.pdb
+c:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Domain\bin\Debug\net7.0\efrete.Core.dll
+c:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Domain\bin\Debug\net7.0\efrete.Core.pdb
+c:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Domain\obj\Debug\net7.0\efrete.Addresses.Domain.csproj.AssemblyReference.cache
+c:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Domain\obj\Debug\net7.0\efrete.Addresses.Domain.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Domain\obj\Debug\net7.0\efrete.Addresses.Domain.AssemblyInfoInputs.cache
+c:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Domain\obj\Debug\net7.0\efrete.Addresses.Domain.AssemblyInfo.cs
+c:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Domain\obj\Debug\net7.0\efrete.Addresses.Domain.csproj.CoreCompileInputs.cache
+c:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Domain\obj\Debug\net7.0\efrete.Addresses.Domain.csproj.CopyComplete
+c:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Domain\obj\Debug\net7.0\efrete.Addresses.Domain.dll
+c:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Domain\obj\Debug\net7.0\refint\efrete.Addresses.Domain.dll
+c:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Domain\obj\Debug\net7.0\efrete.Addresses.Domain.pdb
+c:\Users\uande\OneDrive\Área de Trabalho\e-frete\source\efrete.Addresses.Domain\obj\Debug\net7.0\ref\efrete.Addresses.Domain.dll
