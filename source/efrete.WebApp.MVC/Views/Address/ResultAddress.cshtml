@@ -1,0 +1,17 @@
+@model AddressViewModel
+@{
+    ViewData["Title"] = "ResultAddress";
+}
+
+<h1>@ViewData["Title"]</h1>
+    @if(Model is not null)
+    {
+        @Model.ZipCode
+    }
+    else
+    {
+       <span>Deu ruim, dado não encontrado</span> 
+    }
+<div>
+    
+</div>

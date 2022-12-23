@@ -17,15 +17,16 @@ namespace efrete.WebApp.MVC.Setup
             // Notifications
             services.AddScoped<INotificationHandler<DomainNotification>, DomainNotificationHandler>();
 
-
             //Address
+         
+            services.AddScoped<IAddressService, AddressService>();
+            services.AddScoped<IAddressQueries, AddressQueries>();
+            services.AddScoped<IAddressRepository, AddressRepository>();
 
             var mainPath = conf.GetValue<string>("BD:mainPath") ?? string.Empty;
             var sCPath = conf.GetValue<string>("BD:sCPath") ?? string.Empty;
-            
             services.AddScoped<AddressContext>(sp => new AddressContext(mainPath, sCPath));
-            services.AddScoped<IAddressQueries, AddressQueries>();
-            services.AddScoped<IAddressRepository, AddressRepository>();
+        
         }
     }
 }
