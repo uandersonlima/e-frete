@@ -4,13 +4,15 @@ namespace efrete.Addresses.Data
 {
     public class AddressContext
     {
-        public AddressContext(string path)
+        public AddressContext(string mainPath, string sCPath)
         {
-            _path = path;
+            _mainPath = mainPath;
+            _sCPath = sCPath;
             Validate();
         }
 
-        private readonly string _path;
+        private readonly string _mainPath;
+        private readonly string _sCPath;
         public bool Succeeded { get; private set; }
         public List<string> Errors { get; private set; } = new List<string>();
 
@@ -20,14 +22,14 @@ namespace efrete.Addresses.Data
 
         private void Validate()
         {
-            if (string.IsNullOrEmpty(_path))
+            if (string.IsNullOrEmpty(_mainPath) || string.IsNullOrEmpty(_sCPath))
             {
                 Errors.Add("Caminho inválido");
                 Succeeded = false;
                 return;
             }
 
-            if (!File.Exists(_path))
+            if (!File.Exists(_mainPath) || !File.Exists(_sCPath))
             {
                 Errors.Add("Não foi possível localizar o arquivo no caminho específicado");
                 Succeeded = false;
@@ -39,24 +41,52 @@ namespace efrete.Addresses.Data
         private List<Address> GetAddresses()
         {
             var addressesList = new List<Address>();
-            using (StreamReader sr = new StreamReader(_path))
+            /*Reading LOG_LOCALIDADE.txt */
+            using (StreamReader mainSr = new StreamReader(_mainPath))
             {
-                var line = string.Empty;
-                while ((line = sr.ReadLine()) != null)
+                var locality = string.Empty;
+                while ((locality = mainSr.ReadLine()) is not null)
                 {
-                    var addressProperties = line.Split('@');
-                    var uFState = UFState.GetAll<UFState>().Where(uS => uS.Id == addressProperties[1]).FirstOrDefault();
+                    var localityProperties = locality.Split('@');
 
-                    Address address = new(Int32.Parse(addressProperties[0]),
-                          uFState ?? new UFState("XX", "XXXXXXX"),
-                          new City(Int32.Parse(addressProperties[0]), addressProperties[2]),
-                            addressProperties[4],
-                             addressProperties[5],
-                             addressProperties[3]);
+                    //localityProperties.
+                    Address address = new(null, localityProperties[1],
+                                          null, localityProperties[0],
+                                          localityProperties[2], null,
+                                          null, null);
+
+                    /*Join LOG_LOCALIDADE.txt with LOG_LOGRADOURO_SC.txt*/
+
+                    if (address.Uf == "SC")
+                    {
+                        using (StreamReader SCSr = new StreamReader(_sCPath))
+                        {
+                            var localeAddOns = string.Empty;
+
+                            while ((localeAddOns = SCSr.ReadLine()) is not null)
+                            {
+
+                                var localeAddOnsProperties = localeAddOns.Split('@');
+                                //join made with city code
+                                if (address.CityCode == localeAddOnsProperties[2])
+                                {
+                                    //indexes: 2 codecity 7 cep 
+                                    address.SetStreetProperties(localeAddOnsProperties[0], localeAddOnsProperties[10]);
+                                    address.SetCep(UInt32.Parse(localeAddOnsProperties[7]));
+
+                                }
+                            }
+                        }
+                    }
+                    /*---------------------------------------------------*/
+
                     addressesList.Add(address);
                 }
             }
+            /*------------------------------------------------------------*/
             return addressesList;
         }
+
+
     }
 }

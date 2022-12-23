@@ -13,16 +13,35 @@ namespace efrete.WebApp.MVC.Controllers
             _addressQueries = addressQueries;
         }
 
+        [HttpGet]
         [Route("search-address")]
         public IActionResult SearchAddress()
         {
-            var list = _addressQueries.GetAllAddressesAsync();
             return View();
         }
+
+        [HttpPost]
+        [Route("search-address")]
+        public IActionResult SearchAddress([FromForm] string zipCode)
+        {
+
+            return View();
+        }
+
+
+        [HttpGet]
         [Route("search-zip-code")]
         public IActionResult SearchZipCode()
         {
-            var list = _addressQueries.GetAllAddressesAsync();
+
+            return View();
+        }
+
+        [HttpPost]
+        [Route("search-zip-code")]
+        public IActionResult SearchZipCode([FromForm] string uF, [FromForm] string city, [FromForm] string street)
+        {
+
             return View();
         }
     }

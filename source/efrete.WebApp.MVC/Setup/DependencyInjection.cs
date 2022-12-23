@@ -2,17 +2,30 @@ using efrete.Addresses.Application.Queries;
 using efrete.Addresses.Data;
 using efrete.Addresses.Data.Repository;
 using efrete.Addresses.Domain;
+using efrete.Core.Communication;
+using efrete.Core.Messages.Common.Notifications;
+using MediatR;
 
 namespace efrete.WebApp.MVC.Setup
 {
     public static class DependencyInjection
     {
-        public static void RegisterServices(this IServiceCollection service, ConfigurationManager conf)
+        public static void RegisterServices(this IServiceCollection services, ConfigurationManager conf)
         {
-            var contextSettings = conf.GetValue<string>("BD:path") ?? string.Empty;
-            service.AddScoped<AddressContext>(sp => new AddressContext(contextSettings));
-            service.AddScoped<IAddressQueries, AddressQueries>();
-            service.AddScoped<IAddressRepository, AddressRepository>();
+            // Mediator
+            services.AddScoped<IMediatorHandler, MediatorHandler>();
+            // Notifications
+            services.AddScoped<INotificationHandler<DomainNotification>, DomainNotificationHandler>();
+
+
+            //Address
+
+            var mainPath = conf.GetValue<string>("BD:mainPath") ?? string.Empty;
+            var sCPath = conf.GetValue<string>("BD:sCPath") ?? string.Empty;
+            
+            services.AddScoped<AddressContext>(sp => new AddressContext(mainPath, sCPath));
+            services.AddScoped<IAddressQueries, AddressQueries>();
+            services.AddScoped<IAddressRepository, AddressRepository>();
         }
     }
 }

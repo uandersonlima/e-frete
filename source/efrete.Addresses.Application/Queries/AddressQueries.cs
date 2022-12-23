@@ -15,16 +15,16 @@ namespace efrete.Addresses.Application.Queries
         public List<AddressViewModel> GetAllAddressesAsync()
         {
             var addressVMList = new List<AddressViewModel>();
-            _addressRepository
-                     .GetAllAddressesAsync()
-                        .ForEach(a => addressVMList.Add(new AddressViewModel
-                        (
-                                new UFStateViewModel(a.UFState.Id, a.UFState.Name), 
-                                //a.CityName, 
-                                a.NeighborhoodName, 
-                                a.StreetName, 
-                                a.ZipCode
-                        )));
+            // _addressRepository
+            //          .GetAllAddressesAsync()
+            //             // .ForEach(a => addressVMList.Add(new AddressViewModel
+            //             // (
+            //             //         new UFStateViewModel(a.UFState.Id, a.UFState.Name), 
+            //             //         //a.CityName, 
+            //             //         a.NeighborhoodName, 
+            //             //         a.StreetName, 
+            //             //         a.ZipCode
+            //             // )));
             return addressVMList;
         }
     }
