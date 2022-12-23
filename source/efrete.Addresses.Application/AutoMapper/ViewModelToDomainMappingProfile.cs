@@ -9,7 +9,7 @@ namespace efrete.Addresses.Application.AutoMapper
         public ViewModelToDomainMappingProfile()
         {
             CreateMap<AddressViewModel, Address>()
-            .ConstructUsing(aVM => new Address(UInt32.Parse(aVM.ZipCode ?? "0"), aVM.Uf, null, aVM.CityCode, aVM.CityName, aVM.NeighborhoodName, aVM.StreetCode, aVM.StreetName));
+            .ConstructUsing(aVM => new Address(UInt32.Parse(aVM.ZipCode ?? "0"), aVM.Uf, aVM.CityCode, aVM.CityName, aVM.NeighborhoodName, aVM.StreetCode, aVM.StreetName));
         }
 
     }

@@ -4,7 +4,7 @@ namespace efrete.Addresses.Domain
 {
     public class Address : IAggregateRoot
     {
-        public Address(uint? zipCode, string? uf, string? stateName, string? cityCode, string? cityName, string? neighborhoodName, string? streetCode, string? streetName)
+        public Address(uint? zipCode, string? uf, string? cityCode, string? cityName, string? neighborhoodName, string? streetCode, string? streetName)
         {
             ZipCode = zipCode;
             Uf = uf;
@@ -13,16 +13,6 @@ namespace efrete.Addresses.Domain
             NeighborhoodName = neighborhoodName;
             StreetCode = streetCode;
             StreetName = streetName;
-        }
-
-        public void SetStreetProperties(string code, string name)
-        {
-            StreetCode = code;
-            StreetName = name;
-        }
-        public void SetCep(uint zipCode)
-        {
-             ZipCode = zipCode;
         }
 
 

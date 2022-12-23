@@ -51,7 +51,6 @@ namespace efrete.Addresses.Data
                            from aux in temp.DefaultIfEmpty()
                            select new Address(addressSC.ZipCode ?? aux.ZipCode
                                            , addressSC.Uf ?? aux.Uf
-                                           , null
                                            , addressSC.CityCode ?? aux.CityCode
                                            , addressSC.CityName ?? aux.CityName
                                            , null
@@ -95,7 +94,7 @@ namespace efrete.Addresses.Data
 
                     //localityProperties.
                     Address address = new(null, localityProperties[1],
-                                          null, localityProperties[0],
+                                          localityProperties[0],
                                           localityProperties[2], null,
                                           null, null);
 
@@ -121,7 +120,7 @@ namespace efrete.Addresses.Data
 
                     //localeAddOnsProperties
                     Address address = new(UInt32.Parse(localeAddOnsProperties[7]), localeAddOnsProperties[1],
-                                          null, localeAddOnsProperties[2],
+                                          localeAddOnsProperties[2],
                                           null, null,
                                           localeAddOnsProperties[0], localeAddOnsProperties[10]);
 
