@@ -40,24 +40,44 @@ namespace efrete.Addresses.Data
 
         private List<Address> GetAddresses()
         {
-            /*Join LOG_LOCALIDADE.txt with LOG_LOGRADOURO_SC.txt*/
+            /*FULL JOIN LOG_LOCALIDADE.txt with LOG_LOGRADOURO_SC.txt*/
             var listSC = GetAddressWithSCLocationProperties();
             var listGE = GetAddressWithGenericLocationProperties();
 
-            var addressesList = from addressSC in listSC
-                                join addressGE in listGE
-                                     on addressSC.CityCode equals addressGE.CityCode
-                                into temp
-                                from aux in temp.DefaultIfEmpty()
-                                select new Address(addressSC.ZipCode
-                                                , aux.Uf ?? addressSC.Uf
-                                                , null, aux.CityCode ?? addressSC.CityCode
-                                                , aux.CityName, null
-                                                , addressSC.StreetCode, addressSC.StreetName);
+            var leftJoin = from addressSC in listSC
+                           join addressGE in listGE
+                                on addressSC.CityCode equals addressGE.CityCode
+                           into temp
+                           from aux in temp.DefaultIfEmpty()
+                           select new Address(addressSC.ZipCode ?? aux.ZipCode
+                                           , addressSC.Uf ?? aux.Uf
+                                           , null
+                                           , addressSC.CityCode ?? aux.CityCode
+                                           , addressSC.CityName ?? aux.CityName
+                                           , null
+                                           , addressSC.StreetCode ?? aux.StreetCode
+                                           , addressSC.StreetName ?? aux.StreetName);
+                           
+            // var rightJoin = from addressGE in listGE
+            //                 join addressSC in listSC
+            //                      on  addressGE.ZipCode equals addressSC.ZipCode
+            //                 into temp
+            //                 from aux in temp.DefaultIfEmpty()
+            //                 select new Address(addressGE.ZipCode ?? aux.ZipCode
+            //                                , addressGE.Uf ?? aux.Uf
+            //                                , null
+            //                                , addressGE.CityCode ?? aux.CityCode
+            //                                , addressGE.CityName ?? aux.CityName
+            //                                , null
+            //                                , addressGE.StreetCode ?? aux.StreetCode
+            //                                , addressGE.StreetName ?? aux.StreetName);
 
-            /*---------------------------------------------------*/
-            var i = addressesList.Count();
-            return addressesList.ToList();
+            // rightJoin.Count();
+            // leftJoin.Count();
+            // /*---------------------------------------------------*/
+            // var addressesList = rightJoin.Union(leftJoin);
+
+            return leftJoin.ToList();
         }
 
 

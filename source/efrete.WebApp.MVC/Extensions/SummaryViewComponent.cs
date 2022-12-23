@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace efrete.WebApp.MVC.Extensions
 {
-    public class SummaryNotificationsViewComponent : ViewComponent
+    public class SummaryViewComponent : ViewComponent
     {
         private readonly DomainNotificationHandler _notifications;
 
-        public SummaryNotificationsViewComponent(INotificationHandler<DomainNotification> notifications)
+        public SummaryViewComponent(INotificationHandler<DomainNotification> notifications)
         {
             _notifications = (DomainNotificationHandler)notifications;
         }
@@ -17,9 +17,10 @@ namespace efrete.WebApp.MVC.Extensions
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var notifications = await Task.FromResult(_notifications.GetNotifications());
-            notifications.ForEach(c => ViewData.ModelState.AddModelError(c.Key, c.Value));
+            notifications.ForEach(c => ViewData.ModelState.AddModelError("", c.Value));
+                
 
-            return View();
+            return View("Default");
         }
     }
 }

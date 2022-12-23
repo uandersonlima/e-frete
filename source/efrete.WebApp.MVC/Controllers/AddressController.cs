@@ -43,7 +43,15 @@ namespace efrete.WebApp.MVC.Controllers
             if (ModelState.IsValid)
             {
                 var result = _addressQueries.GetAddressByZipCode(UInt32.Parse(addressView.ZipCode));
-                if (result is not null) ViewBag.ZipCode = result.ZipCode;
+
+                if (!OperationIsValid())
+                {
+                    TempData["Errors"] = GetErrorMessages();
+                }
+
+                if (result is not null)
+                    result.CityName = result.CityName + " - " + result.Uf;
+
                 return RedirectToAction(nameof(ResultAddress), result);
             }
 
@@ -78,7 +86,12 @@ namespace efrete.WebApp.MVC.Controllers
             if (ModelState.IsValid)
             {
                 var result = _addressQueries.GetZipCodeByAddress(addressView);
-                if (result is not null) ViewBag.ZipCode = result.ZipCode;
+
+                if (!OperationIsValid())
+                {
+                    TempData["Errors"] = GetErrorMessages();
+                }
+
                 return RedirectToAction(nameof(ResultZipCode), result);
             }
 

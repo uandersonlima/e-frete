@@ -3,15 +3,95 @@
     ViewData["Title"] = "Resultado busca por cep";
 }
 
-<h1>@ViewData["Title"]</h1>
-    @if(Model is not null)
-    {
-        @Model.CityName
-    }
-    else
-    {
-       <span>Deu ruim, dado não encontrado</span> 
-    }
-<div>
-    
+<vc:summary />
+<div class="container min-height-custom">
+    <div class="row h-inherit">
+        @if (Model.ZipCode is null)
+        {
+            <div class="col-12 align-self-center">
+                <span class="fs-5 fw-light">
+                    <a class="link-purple" asp-area="" asp-controller="Home" asp-action="Index">
+                        Início >
+                    </a>
+                    <a class="link-purple" asp-area="" asp-controller="Address" asp-action="SearchZipCode">
+                        Buscar endereço >
+                    </a>
+                    @if (Model.ZipCode is null)
+                    {
+                        <span>Nada encontrado</span>
+                    }
+                </span>
+            </div>
+
+            <div class="col-12 my-5">
+                <div class="col-10 col-sm-8 col-md-8 col-lg-5 col-xl-4">
+                    <div class="col-12 col-sm-9 col-md-10">
+                        <h4>Nenhum cep encontrado em nossa base de dados com o endereço informado.</h4>
+                    </div>
+                    <div class="mt-4">
+                        <div class="row">
+                            <div class="col-6 d-grid gap-2 pe-2">
+                                <a class="btn btn-lg btn-light text-muted fs-5" asp-area="" asp-controller="Address"
+                               asp-action="SearchZipCode">
+                                    Voltar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12"></div>
+            <div class="col-12"></div>
+            <div class="col-12"></div>
+            <div class="col-12"></div>
+        }
+        else
+        {
+            <div class="col-12 align-self-center">
+                <span class="fs-5 fw-light">
+                    <a class="link-purple" asp-area="" asp-controller="Home" asp-action="Index">
+                        Início >
+                    </a>
+                    <a class="link-purple" asp-area="" asp-controller="Address" asp-action="SearchAddress">
+                        Buscar endereço >
+                    </a>
+                    @if (Model.ZipCode is not null)
+                    {
+                        <span>@Model.ZipCode</span>
+                    }
+                </span>
+            </div>
+            <div class="col-12 my-5">
+                <div class="col-10 col-sm-8 col-md-8 col-lg-5 col-xl-4">
+                    <label asp-for="ZipCode" class="form-label mt-2 text-muted">Cep</label>
+                    <input class="form-control form-control-lg mt-1 text-muted" maxlength="8" type="number" asp-for="ZipCode"
+                       disabled />
+                    <label asp-for="StreetCode" class="form-label mt-2 text-muted">Código do logradouro</label>
+                    <input class="form-control form-control-lg mt-1 text-muted" type="text" asp-for="StreetCode"
+                       disabled />
+                    <label asp-for="CityName" class="form-label mt-2 text-muted">Munícipio / UF</label>
+                    <input class="form-control form-control-lg mt-1 text-muted" type="text" asp-for="CityName"
+                       disabled />
+                    <label asp-for="StreetName" class="form-label mt-2 text-muted">Logradouro</label>
+                    <input class="form-control form-control-lg mt-1 text-muted" type="text" asp-for="StreetName"
+                       disabled />
+                    <div class="mt-4">
+                        <div class="row">
+                            <div class="col-6 d-grid gap-2 pe-2">
+                                <a class="btn btn-lg btn-light text-muted fs-5" asp-area="" asp-controller="Address"
+                               asp-action="SearchZipCode">
+                                    Voltar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12"></div>
+            <div class="col-12"></div>
+            <div class="col-12"></div>
+            <div class="col-12"></div>
+        }
+        </>
+    </div>
 </div>
