@@ -1,18 +1,18 @@
 using efrete.Core.Communication;
 using efrete.Core.Messages.Common.Notifications;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace efrete.WebApp.MVC.Controllers
 {
-    [Route("[controller]")]
     public abstract class BaseController : Controller
     {
         private readonly DomainNotificationHandler _notifications;
         private readonly IMediatorHandler _mediatorHandler;
 
-        protected BaseController(DomainNotificationHandler notifications, IMediatorHandler mediatorHandler)
+        protected BaseController(INotificationHandler<DomainNotification>  notifications, IMediatorHandler mediatorHandler)
         {
-            _notifications = notifications;
+            _notifications = (DomainNotificationHandler)notifications;
             _mediatorHandler = mediatorHandler;
         }
 

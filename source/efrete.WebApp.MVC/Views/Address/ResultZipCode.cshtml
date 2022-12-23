@@ -1,12 +1,12 @@
 @model AddressViewModel
 @{
-    ViewData["Title"] = "Resultado busca por endereço";
+    ViewData["Title"] = "Resultado busca por cep";
 }
 
 <h1>@ViewData["Title"]</h1>
     @if(Model is not null)
     {
-        @Model.ZipCode
+        @Model.CityName
     }
     else
     {

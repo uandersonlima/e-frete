@@ -17,7 +17,7 @@ namespace efrete.WebApp.MVC.Extensions
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var notifications = await Task.FromResult(_notifications.GetNotifications());
-            notifications.ForEach(c => ViewData.ModelState.AddModelError(string.Empty, c.Value));
+            notifications.ForEach(c => ViewData.ModelState.AddModelError(c.Key, c.Value));
 
             return View();
         }

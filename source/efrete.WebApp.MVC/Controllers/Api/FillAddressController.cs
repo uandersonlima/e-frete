@@ -1,23 +1,51 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using efrete.Addresses.Application.Queries;
+using Microsoft.AspNetCore.Mvc;
 
 namespace efrete.WebApp.MVC.Controllers
 {
     [ApiController]
-    [Route("")]
+    [Route("api/[controller]")]
     public class FillAddressController : ControllerBase
     {
-        [Route("UF")]
-        [HttpPost]
-        public IActionResult FillUF([FromBody] string text)
+        private readonly IAddressQueries _addressQueries;
+
+
+        public FillAddressController(IAddressQueries addressQueries)
         {
-            return Ok();
+            _addressQueries = addressQueries;
         }
 
-        [Route("Street")]
-        [HttpPost]
-        public IActionResult SearchAddress([FromBody] string text)
+
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<IActionResult> AutoCompleteCity(string uf, string query)
         {
-            return Ok();
+            try
+            {
+                var cityNames = _addressQueries.GetCityNamesByUf(uf, query);
+
+                return Ok(cityNames);
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpGet]
+        [Route("[action]")]
+        public async Task<IActionResult> AutoCompleteStreet(string cityName, string query)
+        {
+            try
+            {
+                var streetNames = _addressQueries.GetStreetNamesByCityName(cityName, query);
+
+                return Ok(streetNames);
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
     }
 }

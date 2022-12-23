@@ -40,7 +40,31 @@ namespace efrete.Addresses.Data
 
         private List<Address> GetAddresses()
         {
+            /*Join LOG_LOCALIDADE.txt with LOG_LOGRADOURO_SC.txt*/
+            var listSC = GetAddressWithSCLocationProperties();
+            var listGE = GetAddressWithGenericLocationProperties();
+
+            var addressesList = from addressSC in listSC
+                                join addressGE in listGE
+                                     on addressSC.CityCode equals addressGE.CityCode
+                                into temp
+                                from aux in temp.DefaultIfEmpty()
+                                select new Address(addressSC.ZipCode
+                                                , aux.Uf ?? addressSC.Uf
+                                                , null, aux.CityCode ?? addressSC.CityCode
+                                                , aux.CityName, null
+                                                , addressSC.StreetCode, addressSC.StreetName);
+
+            /*---------------------------------------------------*/
+            var i = addressesList.Count();
+            return addressesList.ToList();
+        }
+
+
+        private List<Address> GetAddressWithGenericLocationProperties()
+        {
             var addressesList = new List<Address>();
+
             /*Reading LOG_LOCALIDADE.txt */
             using (StreamReader mainSr = new StreamReader(_mainPath))
             {
@@ -55,38 +79,38 @@ namespace efrete.Addresses.Data
                                           localityProperties[2], null,
                                           null, null);
 
-                    /*Join LOG_LOCALIDADE.txt with LOG_LOGRADOURO_SC.txt*/
+                    addressesList.Add(address);
+                }
+            }
+            return addressesList;
+        }
 
-                    if (address.Uf == "SC")
-                    {
-                        using (StreamReader SCSr = new StreamReader(_sCPath))
-                        {
-                            var localeAddOns = string.Empty;
+        private List<Address> GetAddressWithSCLocationProperties()
+        {
+            var addressesList = new List<Address>();
 
-                            while ((localeAddOns = SCSr.ReadLine()) is not null)
-                            {
+            /*Reading LOG_LOGRADOURO_SC.txt */
+            using (StreamReader SCSr = new StreamReader(_sCPath))
+            {
+                var localeAddOns = string.Empty;
 
-                                var localeAddOnsProperties = localeAddOns.Split('@');
-                                //join made with city code
-                                if (address.CityCode == localeAddOnsProperties[2])
-                                {
-                                    //indexes: 2 codecity 7 cep 
-                                    address.SetStreetProperties(localeAddOnsProperties[0], localeAddOnsProperties[10]);
-                                    address.SetCep(UInt32.Parse(localeAddOnsProperties[7]));
+                while ((localeAddOns = SCSr.ReadLine()) is not null)
+                {
 
-                                }
-                            }
-                        }
-                    }
-                    /*---------------------------------------------------*/
+                    var localeAddOnsProperties = localeAddOns.Split('@');
+
+                    //localeAddOnsProperties
+                    Address address = new(UInt32.Parse(localeAddOnsProperties[7]), localeAddOnsProperties[1],
+                                          null, localeAddOnsProperties[2],
+                                          null, null,
+                                          localeAddOnsProperties[0], localeAddOnsProperties[10]);
 
                     addressesList.Add(address);
                 }
             }
-            /*------------------------------------------------------------*/
+
             return addressesList;
         }
-
 
     }
 }
